@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>VerificadorCampoHarmonico.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TeoriaMusical&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">VerificadorCampoHarmonico.java</span></div><h1>VerificadorCampoHarmonico.java</h1><pre class="source lang-java linenums">
+import controllers.GeradorDeEscalaMaior;
+import java.util.ArrayList;
+import java.util.List;
+import models.Nota;
+import models.NotasMusicais;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ * @author ricardocorrent
+ */
+<span class="nc" id="L17">class VerificadorCampoHarmonico {</span>
+
+<span class="nc" id="L19">    GeradorDeEscalaMaior geradorDeEscala = new GeradorDeEscalaMaior();</span>
+<span class="nc" id="L20">    NotasMusicais notasMusicais = new NotasMusicais();</span>
+
+    private List&lt;Integer&gt; pegarNotasBasicas(List&lt;Integer&gt; musica) {
+<span class="nc" id="L23">        List&lt;Integer&gt; novaMusica = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        for (int m : musica) {</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">            if (m &gt; 12) {</span>
+<span class="nc" id="L26">                m = pegaNotaBasica(m);</span>
+            }
+<span class="nc" id="L28">            novaMusica.add(m);</span>
+<span class="nc" id="L29">        }</span>
+<span class="nc" id="L30">        return novaMusica;</span>
+    }
+
+    Integer isAfinado(List&lt;Integer&gt; musica) {
+<span class="nc" id="L34">        List&lt;Integer&gt; musicaBasica = pegarNotasBasicas(musica);</span>
+<span class="nc" id="L35">        System.out.println(&quot;musicaBasica &quot; + musicaBasica.toString());</span>
+        
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        for (int i = 1; i &lt; 13; i++) {</span>
+<span class="nc" id="L38">            List&lt;Nota&gt; escalaComNota = geradorDeEscala.gerarEscala(notasMusicais.pegaANota(i));</span>
+<span class="nc" id="L39">            List&lt;Integer&gt; escalaComInteger = geradorDeEscala.gerarEscalaComInteger(escalaComNota);</span>
+
+<span class="nc" id="L41">            int afinado = musicaBasica.size();</span>
+            
+<span class="nc bnc" id="L43" title="All 2 branches missed.">            for(int m: musicaBasica){</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">                for(int e: escalaComInteger){</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">                    if(m == e){</span>
+<span class="nc" id="L46">                        afinado--;                        </span>
+                    }
+<span class="nc" id="L48">                }</span>
+<span class="nc" id="L49">            }</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">            if(afinado == 0){</span>
+<span class="nc" id="L51">                return escalaComInteger.get(0);</span>
+            }
+        }
+<span class="nc" id="L54">        return 0;</span>
+    }
+
+    private int pegaNotaBasica(int m) {
+<span class="nc bnc" id="L58" title="All 2 branches missed.">        while (m &gt; 12) {</span>
+<span class="nc" id="L59">            m -= 12;</span>
+        }
+<span class="nc" id="L61">        return m;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -1,0 +1,37 @@
+package models;
+
+public class FaMaior implements Nota {
+	
+	private Nota proximoMeioTom;
+	private Nota proximoTom;
+	
+	public FaMaior() {
+		
+	}
+	
+	public FaMaior(Nota proximoMeioTom, Nota proximoTom) {
+		this.proximoMeioTom = proximoMeioTom;
+		this.proximoTom = proximoTom;
+	}
+
+	@Override
+	public String simbolo() {
+		return "F#";
+	}
+
+	@Override
+	public Integer tom() {
+		return 7;
+	}
+
+	@Override
+	public Integer proximoMeioTom() {
+		return this.proximoMeioTom.tom();
+	}
+
+	@Override
+	public Integer proximoTom() {
+		return this.proximoTom.tom();
+	}
+
+}

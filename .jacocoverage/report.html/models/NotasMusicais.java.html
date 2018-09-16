@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>NotasMusicais.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TeoriaMusical&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">models</a> &gt; <span class="el_source">NotasMusicais.java</span></div><h1>NotasMusicais.java</h1><pre class="source lang-java linenums">package models;
+
+import java.util.HashMap;
+import java.util.Map;
+
+<span class="fc" id="L6">public class NotasMusicais {</span>
+
+<span class="fc" id="L8">    private static Map&lt;Integer, Nota&gt; notasComNumeros = (Map&lt;Integer, Nota&gt;) new HashMap&lt;Integer, Nota&gt;();</span>
+<span class="fc" id="L9">    private static Map&lt;String, Nota&gt; notasComSimbolos = (Map&lt;String, Nota&gt;) new HashMap&lt;String, Nota&gt;();</span>
+    
+    static {
+<span class="fc" id="L12">    	notasComSimbolos.put(&quot;do&quot;, new Do());</span>
+<span class="fc" id="L13">    	notasComSimbolos.put(&quot;doMaior&quot;, new DoMaior());</span>
+<span class="fc" id="L14">    	notasComSimbolos.put(&quot;re&quot;, new Re());</span>
+<span class="fc" id="L15">    	notasComSimbolos.put(&quot;reMaior&quot;, new ReMaior());</span>
+<span class="fc" id="L16">    	notasComSimbolos.put(&quot;mi&quot;, new Mi());</span>
+<span class="fc" id="L17">    	notasComSimbolos.put(&quot;fa&quot;, new Fa());</span>
+<span class="fc" id="L18">    	notasComSimbolos.put(&quot;faMaior&quot;, new FaMaior());</span>
+<span class="fc" id="L19">    	notasComSimbolos.put(&quot;sol&quot;, new Sol());</span>
+<span class="fc" id="L20">    	notasComSimbolos.put(&quot;solMaior&quot;, new SolMaior());</span>
+<span class="fc" id="L21">    	notasComSimbolos.put(&quot;la&quot;, new La());</span>
+<span class="fc" id="L22">    	notasComSimbolos.put(&quot;laMaior&quot;, new LaMaior());</span>
+<span class="fc" id="L23">    	notasComSimbolos.put(&quot;si&quot;, new Si());</span>
+    }
+    
+    static {
+<span class="fc" id="L27">        notasComNumeros.put(1, new Do(pega(&quot;doMaior&quot;), pega(&quot;re&quot;)));</span>
+<span class="fc" id="L28">        notasComNumeros.put(2, new DoMaior(pega(&quot;re&quot;), pega(&quot;reMaior&quot;)));</span>
+<span class="fc" id="L29">        notasComNumeros.put(3, new Re(pega(&quot;reMaior&quot;), pega(&quot;mi&quot;)));</span>
+<span class="fc" id="L30">        notasComNumeros.put(4, new ReMaior(pega(&quot;mi&quot;), pega(&quot;fa&quot;)));</span>
+<span class="fc" id="L31">        notasComNumeros.put(5, new Mi(pega(&quot;fa&quot;), pega(&quot;faMaior&quot;)));</span>
+<span class="fc" id="L32">        notasComNumeros.put(6, new Fa(pega(&quot;faMaior&quot;), pega(&quot;sol&quot;)));</span>
+<span class="fc" id="L33">        notasComNumeros.put(7, new FaMaior(pega(&quot;sol&quot;), pega(&quot;solMaior&quot;)));</span>
+<span class="fc" id="L34">        notasComNumeros.put(8, new Sol(pega(&quot;solMaior&quot;), pega(&quot;la&quot;)));</span>
+<span class="fc" id="L35">        notasComNumeros.put(9, new SolMaior(pega(&quot;la&quot;), pega(&quot;laMaior&quot;)));</span>
+<span class="fc" id="L36">        notasComNumeros.put(10, new La(pega(&quot;laMaior&quot;), pega(&quot;si&quot;)));</span>
+<span class="fc" id="L37">        notasComNumeros.put(11, new LaMaior(pega(&quot;si&quot;), pega(&quot;do&quot;)));</span>
+<span class="fc" id="L38">        notasComNumeros.put(12, new Si(pega(&quot;do&quot;), pega(&quot;doMaior&quot;)));</span>
+<span class="fc" id="L39">    } </span>
+    
+
+    public static Nota pega(String nome) {
+<span class="fc" id="L43">        return notasComSimbolos.get(nome);</span>
+    }
+    public Nota pegaANota(Integer tom) {
+<span class="fc" id="L46">    	return notasComNumeros.get(tom);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
