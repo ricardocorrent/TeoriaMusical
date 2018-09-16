@@ -33,13 +33,6 @@ public class Mi implements Nota {
 	public Integer proximoTom() {
 		return this.proximoTom.tom();
 	}
-	
-	public Nota getProximoMeioTom() {
-		return proximoMeioTom;
-	}
-	
-	public Nota getProximoTom() {
-		return proximoTom;
-	}
+
 
 }

@@ -31,34 +31,57 @@ import models.NotasMusicais;
     }
 
     Integer isAfinado(List&lt;Integer&gt; musica) {
-<span class="nc" id="L34">        List&lt;Integer&gt; musicaBasica = pegarNotasBasicas(musica);</span>
-<span class="nc" id="L35">        System.out.println(&quot;musicaBasica &quot; + musicaBasica.toString());</span>
         
-<span class="nc bnc" id="L37" title="All 2 branches missed.">        for (int i = 1; i &lt; 13; i++) {</span>
-<span class="nc" id="L38">            List&lt;Nota&gt; escalaComNota = geradorDeEscala.gerarEscala(notasMusicais.pegaANota(i));</span>
-<span class="nc" id="L39">            List&lt;Integer&gt; escalaComInteger = geradorDeEscala.gerarEscalaComInteger(escalaComNota);</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        if(!isValidarMusica(musica)){</span>
+<span class="nc" id="L36">            return -1;</span>
+        }      
+                
+<span class="nc" id="L39">        List&lt;Integer&gt; musicaBasica = pegarNotasBasicas(musica);</span>
+        
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        for (int i = 1; i &lt; 13; i++) {</span>
+<span class="nc" id="L42">            List&lt;Nota&gt; escalaComNota = geradorDeEscala.gerarEscala(notasMusicais.pegaANota(i));</span>
+<span class="nc" id="L43">            List&lt;Integer&gt; escalaComInteger = geradorDeEscala.gerarEscalaComInteger(escalaComNota);</span>
 
-<span class="nc" id="L41">            int afinado = musicaBasica.size();</span>
+<span class="nc" id="L45">            int afinado = musicaBasica.size();</span>
             
-<span class="nc bnc" id="L43" title="All 2 branches missed.">            for(int m: musicaBasica){</span>
-<span class="nc bnc" id="L44" title="All 2 branches missed.">                for(int e: escalaComInteger){</span>
-<span class="nc bnc" id="L45" title="All 2 branches missed.">                    if(m == e){</span>
-<span class="nc" id="L46">                        afinado--;                        </span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">            for(int m: musicaBasica){</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">                for(int e: escalaComInteger){</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">                    if(m == e){</span>
+<span class="nc" id="L50">                        afinado--;                        </span>
                     }
-<span class="nc" id="L48">                }</span>
-<span class="nc" id="L49">            }</span>
-<span class="nc bnc" id="L50" title="All 2 branches missed.">            if(afinado == 0){</span>
-<span class="nc" id="L51">                return escalaComInteger.get(0);</span>
+<span class="nc" id="L52">                }</span>
+<span class="nc" id="L53">            }</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">            if(afinado == 0){</span>
+<span class="nc" id="L55">                return escalaComInteger.get(0);</span>
             }
         }
-<span class="nc" id="L54">        return 0;</span>
+<span class="nc" id="L58">        return 0;</span>
+    }
+    
+    public boolean isValidarMusica(List&lt;Integer&gt; musica){
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        if(musica.size() &gt; 105){</span>
+<span class="nc" id="L63">            return false;</span>
+        }
+                
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        for(int i: musica){</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">            if(i &gt; 61){</span>
+<span class="nc" id="L68">                return false;</span>
+            }
+<span class="nc" id="L70">        }</span>
+        
+<span class="nc bnc" id="L72" title="All 2 branches missed.">        for(int i: musica){</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">            if(i &lt; 1){</span>
+<span class="nc" id="L74">                return false;</span>
+            }
+<span class="nc" id="L76">        }</span>
+<span class="nc" id="L77">        return true;</span>
     }
 
     private int pegaNotaBasica(int m) {
-<span class="nc bnc" id="L58" title="All 2 branches missed.">        while (m &gt; 12) {</span>
-<span class="nc" id="L59">            m -= 12;</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        while (m &gt; 12) {</span>
+<span class="nc" id="L82">            m -= 12;</span>
         }
-<span class="nc" id="L61">        return m;</span>
+<span class="nc" id="L84">        return m;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

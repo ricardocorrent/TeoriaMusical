@@ -26,20 +26,12 @@ public class La implements Nota {
 
 	@Override
 	public Integer proximoMeioTom() {
-		return this.proximoTom.tom();
+		return this.proximoMeioTom.tom();
 	}
 
 	@Override
 	public Integer proximoTom() {
 		return this.proximoTom.tom();
-	}
-	
-	public Nota getProximoMeioTom() {
-		return proximoMeioTom;
-	}
-	
-	public Nota getProximoTom() {
-		return proximoTom;
 	}
 
 }

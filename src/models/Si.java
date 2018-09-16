@@ -33,13 +33,6 @@ public class Si implements Nota {
 	public Integer proximoTom() {
 		return proximoTom.tom();
 	}
-	
-	public Nota getProximoMeioTom() {
-		return proximoMeioTom;
-	}
-	
-	public Nota getProximoTom() {
-		return proximoTom;
-	}
+
 
 }

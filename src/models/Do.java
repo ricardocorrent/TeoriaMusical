@@ -34,13 +34,5 @@ public class Do implements Nota{
 		return tom.tom();
 	}
 	
-	public Nota getMeioTom() {
-		return meioTom;
-	}
-	public Nota getTom() {
-		return tom;
-	}
-
-	
 
 }

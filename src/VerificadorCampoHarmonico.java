@@ -31,8 +31,12 @@ class VerificadorCampoHarmonico {
     }
 
     Integer isAfinado(List<Integer> musica) {
+        
+        if(!isValidarMusica(musica)){
+            return -1;
+        }      
+                
         List<Integer> musicaBasica = pegarNotasBasicas(musica);
-        System.out.println("musicaBasica " + musicaBasica.toString());
         
         for (int i = 1; i < 13; i++) {
             List<Nota> escalaComNota = geradorDeEscala.gerarEscala(notasMusicais.pegaANota(i));
@@ -52,6 +56,25 @@ class VerificadorCampoHarmonico {
             }
         }
         return 0;
+    }
+    
+    public boolean isValidarMusica(List<Integer> musica){
+        if(musica.size() > 105){
+            return false;
+        }
+                
+        for(int i: musica){
+            if(i > 61){
+                return false;
+            }
+        }
+        
+        for(int i: musica){
+            if(i < 1){
+                return false;
+            }
+        }
+        return true;
     }
 
     private int pegaNotaBasica(int m) {
